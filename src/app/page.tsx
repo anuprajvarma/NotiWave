@@ -1,11 +1,31 @@
-import Image from "next/image";
+"use client";
+
+import toast, { Toaster } from "react-hot-toast";
 
 export default function Home() {
+  const handleSendNotification = async () => {
+    let permission = await Notification.requestPermission();
+
+    if (permission === "granted") {
+      let notificationOptions = {
+        body: "Some Notification information",
+        icon: "/notification-icon.png",
+      };
+      let notif = new Notification("My New Notification", notificationOptions);
+      toast.success("Notification Sent Successfully");
+    } else {
+      toast.error("Notification Permission Denied");
+    }
+  };
+
   return (
     <>
-      <div className="text-4xl font-bold text-white">
-        {/* Section for displaying notification illustration */}
-        <div className="m-2 mt-12">
+      <Toaster position="top-center" reverseOrder={false} />
+      <div className="text-4xl font-bold text-white bg-gradient-to-t from-transparent to-violet-700/50">
+        <div className="pt-12">
+          <p className="font-inter font-medium text-[16px] text-center text-white my-5">
+            Hola!
+          </p>
           <div className="relative">
             <img
               src="/Illustration.png"
@@ -13,7 +33,7 @@ export default function Home() {
               className="m-auto relative"
             />
             <img
-              src="/ri_notification-2-line.png"
+              src="/Vector.png"
               alt="Notification"
               className="m-auto absolute inset-0"
             />
@@ -31,7 +51,10 @@ export default function Home() {
 
         {/* Section for sending notifications */}
         <div className="flex items-center justify-center mt-16 mb-6 ml-10 mr-10">
-          <button className="relative w-[327px] h-[46px] rounded-md p-0 shadow-md overflow-hidden border-2 border-violet-700 border-solid bg-indigo-950 font-inter font-semibold text-[16px] text-center text-white small-screen  md:w-[280px] md:h-[42px] lg:w-[300px] lg:h-[42px]">
+          <button
+            onClick={handleSendNotification}
+            className="relative w-[327px] h-[46px] rounded-md p-0 shadow-md overflow-hidden border-2 border-violet-700 border-solid bg-indigo-950 font-inter font-semibold text-[16px] text-center text-white small-screen  md:w-[280px] md:h-[42px] lg:w-[300px] lg:h-[42px]"
+          >
             <span className="absolute inset-0 z-[-1] border-solid border-[1.4px] rounded-md"></span>
             <span className="text-sm">Send Notification</span>
           </button>
