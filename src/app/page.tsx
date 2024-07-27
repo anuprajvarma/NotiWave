@@ -53,7 +53,7 @@ export default function Home() {
         <div className="flex items-center justify-center mt-16 mb-6 ml-10 mr-10">
           <button
             onClick={handleSendNotification}
-            className="relative transation duration-300 hover:bg-indigo-900 hover:border-violet-500 w-[327px] h-[46px] rounded-md p-0 shadow-md overflow-hidden border-2 border-violet-700 border-solid bg-indigo-950 font-inter font-semibold text-[16px] text-center text-white small-screen  md:w-[280px] md:h-[42px] lg:w-[300px] lg:h-[42px]"
+            className="relative transation duration-300 hover:bg-indigo-900 hover:border-violet-500 w-[327px] h-[46px] rounded-xl p-0 shadow-md overflow-hidden border-2 border-violet-700 border-solid bg-indigo-950 font-inter font-semibold text-[16px] text-center text-white small-screen  md:w-[280px] md:h-[42px] lg:w-[300px] lg:h-[42px]"
           >
             <span className="absolute inset-0 z-[-1] border-solid border-[1.4px] rounded-md"></span>
             <span className="text-sm">Send Notification</span>
