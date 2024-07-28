@@ -5,6 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  manifest: "./manifest.json",
   title: "Fullstack Developer Internship Assignment",
   description:
     "Instantly notify users with customizable alerts. Real-time updates, seamless integration.",
